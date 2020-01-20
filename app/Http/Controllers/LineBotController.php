@@ -47,13 +47,17 @@ class LineBotController extends Controller
 
         $replyText = '';
         foreach($googlebookResponse['items'] as $item) {
+           Log::debug($item['volumeInfo']);
+           $volumeInfo = $item['volumeInfo'];
+
            $replyText .=
-               $item['volumeInfo']['title']. "\n" .
+               $volumeInfo['title']. "\n" .
+               $volumeInfo['infoLink']. "\n" .
                "\n";
           }
 
         $replyToken = $event->getReplyToken();
-       $lineBot->replyText($replyToken, $replyText);
+        $lineBot->replyText($replyToken, $replyText);
 
       }
     }
