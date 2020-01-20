@@ -10,7 +10,7 @@ class Googlebook{
     public function searchBooks(string $word) :array
     {
 
-      $data = "https://www.googleapis.com/books/v1/volumes?q=" . urlencode($word) . "&maxResults=5";
+      $data = "https://www.googleapis.com/books/v1/volumes?q=" . urlencode($word) . "&maxResults=7";
 
       $client = new Client();
 
